@@ -30,9 +30,11 @@ async def fv(startValue: float, rate: float = 0.0, periods: int = 1):
 async def rate(startValue: float, endValue: float, periods: int):
     x = TVM(start_value=startValue, end_value = endValue, periods = periods)
     x.calculate()
+    return x
 
     
 @app.get('/periods')
-async def rate(startValue: float, endValue: float, rate: float):
+async def periods(startValue: float, endValue: float, rate: float):
     x = TVM(start_value=startValue, end_value = endValue, rate = rate)
     x.calculate()
+    return x
